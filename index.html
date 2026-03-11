@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindWell — Your Mental Health & Wellness Space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light-mode">
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">MindWell</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#breathing">Breathing</a>
+        <a href="#journal">Journal</a>
+        <a href="#mood">Mood</a>
+        <a href="#affirmations">Affirmations</a>
+        <a href="#sounds">Sounds</a>
+        <a href="#checklist">Self-Care</a>
+        <a href="#resources">Resources</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Take a breath.<br /><span class="highlight">You've got this.</span></h1>
+      <p>A calm space for your mental health journey. Breathe, reflect, and grow — one day at a time.</p>
+      <a href="#breathing" class="cta-button">Start Your Day 💛</a>
+    </div>
+    <div class="hero-illustration">
+      <div class="floating-circle c1"></div>
+      <div class="floating-circle c2"></div>
+      <div class="floating-circle c3"></div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ── 1. Breathing Exercise ── -->
+    <section id="breathing" class="section">
+      <div class="section-header">
+        <h2>🧘 Breathing Exercise</h2>
+        <p>Box breathing: calm your nervous system in just a few minutes</p>
+      </div>
+      <div class="breathing-container">
+        <div class="breathing-outer">
+          <div class="breathing-circle" id="breathingCircle">
+            <div class="breathing-inner">
+              <span class="breath-phase" id="breathPhase">Ready</span>
+              <span class="breath-count" id="breathCount"></span>
+            </div>
+          </div>
+        </div>
+        <p class="breath-instruction" id="breathInstruction">Press Start to begin box breathing</p>
+        <div class="breath-steps">
+          <div class="step" id="step-inhale">Inhale <span>4s</span></div>
+          <div class="step" id="step-hold1">Hold <span>4s</span></div>
+          <div class="step" id="step-exhale">Exhale <span>4s</span></div>
+          <div class="step" id="step-hold2">Hold <span>4s</span></div>
+        </div>
+        <button class="btn btn-primary" id="breathingBtn">▶ Start</button>
+      </div>
+    </section>
+
+    <!-- ── 2. Gratitude Journal ── -->
+    <section id="journal" class="section alt-bg">
+      <div class="section-header">
+        <h2>📓 Gratitude Journal</h2>
+        <p>Write down what you're grateful for — small things count the most</p>
+      </div>
+      <div class="journal-container">
+        <div class="journal-input-area">
+          <textarea id="journalText" placeholder="Today I'm grateful for…" rows="4"></textarea>
+          <button class="btn btn-primary" id="saveJournalBtn">💾 Save Entry</button>
+        </div>
+        <div class="journal-entries" id="journalEntries">
+          <p class="empty-state" id="journalEmpty">No entries yet. Start writing! 🌱</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 3. Mood Tracker ── -->
+    <section id="mood" class="section">
+      <div class="section-header">
+        <h2>😊 Mood Tracker</h2>
+        <p>How are you feeling today? Track your emotional journey</p>
+      </div>
+      <div class="mood-container">
+        <div class="mood-selector">
+          <p class="mood-prompt">How are you feeling right now?</p>
+          <div class="mood-options">
+            <button class="mood-btn" data-mood="great" data-emoji="😄" aria-label="Great">
+              <span class="mood-emoji">😄</span>
+              <span class="mood-label">Great</span>
+            </button>
+            <button class="mood-btn" data-mood="good" data-emoji="🙂" aria-label="Good">
+              <span class="mood-emoji">🙂</span>
+              <span class="mood-label">Good</span>
+            </button>
+            <button class="mood-btn" data-mood="okay" data-emoji="😐" aria-label="Okay">
+              <span class="mood-emoji">😐</span>
+              <span class="mood-label">Okay</span>
+            </button>
+            <button class="mood-btn" data-mood="low" data-emoji="😔" aria-label="Low">
+              <span class="mood-emoji">😔</span>
+              <span class="mood-label">Low</span>
+            </button>
+            <button class="mood-btn" data-mood="bad" data-emoji="😢" aria-label="Bad">
+              <span class="mood-emoji">😢</span>
+              <span class="mood-label">Bad</span>
+            </button>
+          </div>
+          <button class="btn btn-primary" id="saveMoodBtn">Log Mood</button>
+        </div>
+        <div class="mood-history">
+          <h3>Recent Mood History</h3>
+          <div class="mood-log" id="moodLog">
+            <p class="empty-state">No moods logged yet. Select one above! 🌈</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. Positive Affirmations ── -->
+    <section id="affirmations" class="section alt-bg">
+      <div class="section-header">
+        <h2>💬 Positive Affirmations</h2>
+        <p>A gentle reminder of your strength and worth</p>
+      </div>
+      <div class="affirmations-container">
+        <div class="affirmation-card" id="affirmationCard">
+          <div class="quote-icon">"</div>
+          <p class="affirmation-text" id="affirmationText">You are enough, exactly as you are.</p>
+        </div>
+        <button class="btn btn-primary" id="newAffirmationBtn">✨ New Affirmation</button>
+      </div>
+    </section>
+
+    <!-- ── 5. Calm Sounds ── -->
+    <section id="sounds" class="section">
+      <div class="section-header">
+        <h2>🎵 Calm Sounds</h2>
+        <p>Let soothing nature sounds ease your mind</p>
+      </div>
+      <div class="sounds-container">
+        <div class="sound-cards">
+          <div class="sound-card" data-sound="rain">
+            <div class="sound-icon">🌧️</div>
+            <div class="sound-name">Rain</div>
+            <div class="sound-desc">Gentle rainfall</div>
+            <button class="sound-btn" data-sound="rain">Play</button>
+            <div class="sound-visualizer" id="viz-rain">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="sound-card" data-sound="ocean">
+            <div class="sound-icon">🌊</div>
+            <div class="sound-name">Ocean</div>
+            <div class="sound-desc">Calming waves</div>
+            <button class="sound-btn" data-sound="ocean">Play</button>
+            <div class="sound-visualizer" id="viz-ocean">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="sound-card" data-sound="birds">
+            <div class="sound-icon">🐦</div>
+            <div class="sound-name">Birds</div>
+            <div class="sound-desc">Morning birdsong</div>
+            <button class="sound-btn" data-sound="birds">Play</button>
+            <div class="sound-visualizer" id="viz-birds">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="sound-card" data-sound="wind">
+            <div class="sound-icon">🍃</div>
+            <div class="sound-name">Wind</div>
+            <div class="sound-desc">Gentle breeze</div>
+            <button class="sound-btn" data-sound="wind">Play</button>
+            <div class="sound-visualizer" id="viz-wind">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <p class="sounds-note">🎧 Tip: Use headphones for the best experience</p>
+      </div>
+    </section>
+
+    <!-- ── 6. Daily Self-Care Checklist ── -->
+    <section id="checklist" class="section alt-bg">
+      <div class="section-header">
+        <h2>📋 Daily Self-Care Checklist</h2>
+        <p>Small acts of self-care add up to a big difference</p>
+      </div>
+      <div class="checklist-container">
+        <div class="checklist-header-row">
+          <span id="checklistProgress" class="checklist-progress">0 / 8 completed</span>
+          <button class="btn btn-secondary" id="resetChecklistBtn">↺ Reset</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <ul class="checklist" id="selfCareChecklist">
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="water" />
+              <span class="checkmark"></span>
+              <span class="task-icon">💧</span>
+              <span class="task-text">Drink 8 glasses of water</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="walk" />
+              <span class="checkmark"></span>
+              <span class="task-icon">🚶</span>
+              <span class="task-text">Take a 10-minute walk</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="stretch" />
+              <span class="checkmark"></span>
+              <span class="task-icon">🤸</span>
+              <span class="task-text">Stretch for 5 minutes</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="friend" />
+              <span class="checkmark"></span>
+              <span class="task-icon">📱</span>
+              <span class="task-text">Connect with a friend or loved one</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="read" />
+              <span class="checkmark"></span>
+              <span class="task-icon">📖</span>
+              <span class="task-text">Read for 10 minutes</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="sleep" />
+              <span class="checkmark"></span>
+              <span class="task-icon">😴</span>
+              <span class="task-text">Get 7–8 hours of sleep</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="screen" />
+              <span class="checkmark"></span>
+              <span class="task-icon">📵</span>
+              <span class="task-text">Take a 30-min screen break</span>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" data-task="gratitude" />
+              <span class="checkmark"></span>
+              <span class="task-icon">🙏</span>
+              <span class="task-text">Write one thing you're grateful for</span>
+            </label>
+          </li>
+        </ul>
+        <p class="checklist-date" id="checklistDate"></p>
+      </div>
+    </section>
+
+    <!-- ── 7. Mental Health Resources ── -->
+    <section id="resources" class="section">
+      <div class="section-header">
+        <h2>🆘 Mental Health Resources</h2>
+        <p class="help-reminder">It's okay to ask for help 💛 — You are not alone</p>
+      </div>
+      <div class="resources-container">
+        <div class="resources-grid">
+          <div class="resource-card crisis">
+            <div class="resource-icon">📞</div>
+            <h3>Crisis Helplines</h3>
+            <ul class="resource-list">
+              <li>
+                <strong>988 Suicide & Crisis Lifeline (US)</strong><br />
+                Call or text <a href="tel:988">988</a>
+              </li>
+              <li>
+                <strong>Crisis Text Line (US/UK/CA)</strong><br />
+                Text HOME to <a href="sms:741741">741741</a>
+              </li>
+              <li>
+                <strong>International Association for Suicide Prevention</strong><br />
+                <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener noreferrer">Find your local crisis centre →</a>
+              </li>
+              <li>
+                <strong>Samaritans (UK & Ireland)</strong><br />
+                Call <a href="tel:116123">116 123</a> (free, 24/7)
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-card support">
+            <div class="resource-icon">🌐</div>
+            <h3>Mental Health Websites</h3>
+            <ul class="resource-list">
+              <li>
+                <a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener noreferrer">WHO — Mental Health</a>
+                <p>World Health Organization resources and information</p>
+              </li>
+              <li>
+                <a href="https://www.nimh.nih.gov/" target="_blank" rel="noopener noreferrer">NIMH — National Institute of Mental Health</a>
+                <p>Research-backed information and resources</p>
+              </li>
+              <li>
+                <a href="https://www.nami.org/" target="_blank" rel="noopener noreferrer">NAMI — National Alliance on Mental Illness</a>
+                <p>Support, education, and advocacy</p>
+              </li>
+              <li>
+                <a href="https://www.mentalhealth.gov/" target="_blank" rel="noopener noreferrer">MentalHealth.gov</a>
+                <p>US government mental health resources</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-card text">
+            <div class="resource-icon">💬</div>
+            <h3>Text & Online Support</h3>
+            <ul class="resource-list">
+              <li>
+                <a href="https://www.7cups.com/" target="_blank" rel="noopener noreferrer">7 Cups</a>
+                <p>Free online chat with trained listeners</p>
+              </li>
+              <li>
+                <a href="https://www.betterhelp.com/" target="_blank" rel="noopener noreferrer">BetterHelp</a>
+                <p>Online therapy and counseling</p>
+              </li>
+              <li>
+                <a href="https://www.talkspace.com/" target="_blank" rel="noopener noreferrer">Talkspace</a>
+                <p>Text-based therapy with licensed therapists</p>
+              </li>
+              <li>
+                <a href="https://www.headspace.com/" target="_blank" rel="noopener noreferrer">Headspace</a>
+                <p>Guided meditation and mindfulness</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reminder-banner">
+          <span class="reminder-icon">💛</span>
+          <div>
+            <strong>Remember:</strong> Reaching out for help is a sign of strength, not weakness.
+            You deserve care, support, and kindness — especially from yourself.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p class="footer-brand">🌿 MindWell</p>
+      <p class="footer-message">Built with 💛 to support your mental wellness journey.</p>
+      <p class="footer-note">If you are in crisis, please reach out to a professional immediately.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
